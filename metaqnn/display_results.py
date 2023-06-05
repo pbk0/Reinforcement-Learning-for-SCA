@@ -159,7 +159,7 @@ def main(
     plt.close()
 
     top = results_sorted.head(20)
-    top_gb = top.groupby(['epsilon']).count()['net']
+    top_gb = top.groupby(['epsilon']).num_items()['net']
 
     totals = pd.Series(dict(map(lambda x: (x[0], x[1]), ssp['epsilon_schedule'])))
     weighted_gb = top_gb.divide(totals)
